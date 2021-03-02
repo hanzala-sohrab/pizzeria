@@ -23,28 +23,166 @@
 
 ## API Info
 
-1. create
-   <details><summary><ins>pizza > create</ins></summary>
-   
-      POST `/api/create/pizza/`
+1. **create**
+    <details><summary><ins>pizza > create</ins></summary>
+    
+    - POST `/api/create/pizza/`
+    
+        | Parameter  | Description |
+        | ------------- | ------------- |
+        | `pizza_type` **(required)** | Type of pizza (*i.e.* regular or square)  |
+        | `pizza_size` **(required)** | Size of pizza (*e.g.* small, medium, large, etc.)  |
+        | `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
+    
+    - **Example**
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action create pizza create -p pizza_type="Regular" -p pizza_size="Large" -p topping='["Tomato","Cheese"]'
+        ```
+    
+    - **Result**
+        ```json
+        {
+            "id": 5,
+            "pizza_type": "Regular",
+            "pizza_size": "Large",
+            "topping": [
+            "Cheese",
+            "Tomato"
+            ]
+        }
+        ```
+    </details>
+
+    <details><summary><ins>topping > create</ins></summary>
+    
+    - POST `/api/create/topping/`
+    
+        | Parameter  | Description |
+        | ------------- | ------------- |
+        | `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
+        
+    - **Example**
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action create topping create -p topping="Mushroom"
+        ```
+    - **Result**
+        ```json
+        {
+            "topping": "Mushroom"
+        }
+        ```
+    
+    </details>
+
+2. **list**
+    <details><summary><ins>show pizza with given id</ins></summary>
+    
+    - GET `/api/list/{id}/`
+    
+        | Parameter  | Description |
+        | ------------- | ------------- |
+        | `id` **(required)** | Pizza ID  |
+    
+    - **Example**
+        ```json
+
+        ```
+    
+    - **Result**
+        ```json
+
+        ```
+    </details>
+
+    <details><summary><ins>show all pizzas of given size</ins></summary>
+    
+    - GET `/api/list/{size}/`
+    
+        | Parameter  | Description |
+        | ------------- | ------------- |
+        | `size` **(required)**    | Size of pizza |
+    
+    - **Example**
+    ```shell
+    # Load the schema document
+    coreapi get http://127.0.0.1:8000/docs/
+    
+    # Interact with the API endpoint
+    coreapi action list read_0 -p type="Regular"
+    ```
+    - <details><summary>Result</summary>
       
-      | Parameter  | Description |
-      | ------------- | ------------- |
-      | `pizza_type` **(required)** | Type of pizza (*i.e.* regular or square)  |
-      | `pizza_size` **(required)** | Size of pizza (*e.g.* small, medium, large, etc.)  |
-      | `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
-   </details>
-   
-   <details><summary><ins>topping > create</ins></summary>
-   
-      POST `/api/create/topping/`
-      
-      | Parameter  | Description |
-      | ------------- | ------------- |
-      | `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
-      
-      **Example**
-      ```shell
-      curl -v -H "Content-Type: application/json" -X POST -d '{"topping":"Mushroom"}' http://127.0.0.1:8000/api/create/topping/
-      ```
-   </details>
+        ```json
+        [
+            {
+                "id": 2,
+                "pizza_type": "Regular",
+                "pizza_size": "Extra large",
+                "topping": [
+                    "Onion"
+                ]
+            },
+            {
+                "id": 3,
+                "pizza_type": "Regular",
+                "pizza_size": "Large",
+                "topping": [
+                    "Onion",
+                    "Tomato"
+                ]
+            }
+        ]
+        ```
+    </details>
+    </details>
+
+    <details><summary><ins>show all pizzas of given type</ins></summary>
+    
+    - GET `/api/list/{type}/`
+    
+        | Parameter  | Description |
+        | ------------- | ------------- |
+        | `type` **(required)**    | Size of pizza |
+    
+    - **Example**
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action list read_0 -p type="Regular"
+        ```
+    - <details>
+        <summary>Result</summary>
+    
+        ```json
+        [
+            {
+                "id": 2,
+                "pizza_type": "Regular",
+                "pizza_size": "Extra large",
+                "topping": [
+                    "Onion"
+                ]
+            },
+            {
+                "id": 3,
+                "pizza_type": "Regular",
+                "pizza_size": "Large",
+                "topping": [
+                    "Onion",
+                    "Tomato"
+                ]
+            }
+        ]
+        ```
+    </details>
+    </details>
