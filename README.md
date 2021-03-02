@@ -20,6 +20,7 @@
     ```
 5. Go to http://127.0.0.1:8000/docs for testing the APIs.
 
+
 ## API Info
 
 ### 1. create
@@ -28,7 +29,7 @@
 
 ### - <ins>pizza > create</ins>
 
-POST `/api/create/pizza/`
+<span style="background-color: #337ab7; display: inline; padding: .2em .6em .3em; line-height: 1; color: #fff; text-align: center; white-space: nowrap; border-radius: .25em;">POST</span> `/api/create/pizza/`
 
 | Parameter  | Description |
 | ------------- | ------------- |
@@ -42,7 +43,7 @@ POST `/api/create/pizza/`
 
 ### - <ins>topping > create</ins>
 
-POST `/api/create/topping/`
+<span style="background-color: #337ab7; display: inline; padding: .2em .6em .3em; line-height: 1; color: #fff; text-align: center; white-space: nowrap; border-radius: .25em;">POST</span> `/api/create/topping/`
 
 | Parameter  | Description |
 | ------------- | ------------- |
