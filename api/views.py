@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from rest_framework import mixins, generics
-from pizza.models import Pizza, Topping
-from .serializers import PizzaSerializer, ToppingSerializer
+from pizza.models import Pizza, Topping, Size
+from .serializers import PizzaSerializer, ToppingSerializer, SizeSerializer
 
 
 class CreatePizza(generics.CreateAPIView):
@@ -12,6 +11,19 @@ class CreatePizza(generics.CreateAPIView):
 class CreateTopping(generics.CreateAPIView):
     model = Topping
     serializer_class = ToppingSerializer
+
+
+class CreateSize(generics.CreateAPIView):
+    model = Size
+    serializer_class = SizeSerializer
+
+
+class ListAll(generics.ListAPIView):
+    model = Pizza
+    serializer_class = PizzaSerializer
+
+    def get_queryset(self):
+        return self.model.objects.all()
 
 
 class ListByID(generics.ListAPIView):
@@ -52,6 +64,22 @@ class ListByType(generics.ListAPIView):
         pType = self.kwargs['type']
         queryset = self.model.objects.filter(pizza_type=pType)
         return queryset
+
+
+class ListAllSize(generics.ListAPIView):
+    model = Size
+    serializer_class = SizeSerializer
+
+    def get_queryset(self):
+        return self.model.objects.all()
+
+
+class ListAllTopping(generics.ListAPIView):
+    model = Topping
+    serializer_class = ToppingSerializer
+
+    def get_queryset(self):
+        return self.model.objects.all()
 
 
 class Modify(generics.RetrieveUpdateDestroyAPIView):

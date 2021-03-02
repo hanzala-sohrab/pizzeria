@@ -85,7 +85,117 @@ API for creating pizza orders and much more.
     </details>
 
 2. **list**
-    <details><summary><ins>show pizza with given id</ins></summary>
+    <details>
+    <summary><ins>all > list</ins></summary>
+   
+    - GET `/api/list/all/`
+    - **Example**
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action list all list
+        ```
+    - <details><summary>Result</summary>
+      
+        ```json
+        [
+            {
+                "id": 1,
+                "pizza_type": "Regular",
+                "pizza_size": "Small",
+                "topping": [
+                    "Cheese",
+                    "Corn"
+                ]
+            },
+            {
+                "id": 2,
+                "pizza_type": "Regular",
+                "pizza_size": "Small",
+                "topping": [
+                    "Cheese",
+                    "Corn",
+                    "Mushroom",
+                    "Onion"
+                ]
+            }
+        ]
+        ```
+    </details>
+    
+    </details>
+
+    <details>
+    <summary><ins>all > size > list</ins></summary>
+    
+    - GET `/api/list/all/size/`
+    
+    - **Example**
+    
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action list all size list
+        ```
+    - **Result**
+    
+        ```json
+        [
+            {
+                "size": "Small"
+            },
+            {
+                "size": "Medium"
+            },
+            {
+                "size": "Large"
+            },
+            {
+                "size": "Extra large"
+            }
+        ]
+        ```
+    </details>
+
+    <details>
+    <summary><ins>all > topping > list</ins></summary>
+    
+    - GET `/api/list/all/topping/`
+    
+    - **Example**
+    
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action list all toppings list
+        ```
+    - **Result**
+    
+        ```json
+        [
+            {
+                "topping": "Cheese"
+            },
+            {
+                "topping": "Corn"
+            },
+            {
+                "topping": "Tomato"
+            },
+            {
+                "topping": "Jalapeno"
+            }
+        ]
+        ```
+    </details>
+
+    <details><summary><ins>id > read</ins></summary>
     
     - GET `/api/list/{id}/`
     
@@ -117,7 +227,7 @@ API for creating pizza orders and much more.
         ```
     </details>
 
-    <details><summary><ins>show all pizzas of given size</ins></summary>
+    <details><summary><ins>size > read</ins></summary>
     
     - GET `/api/list/size/{size}/`
     
@@ -179,7 +289,7 @@ API for creating pizza orders and much more.
     </details>
     </details>
 
-    <details><summary><ins>show all pizzas of given type</ins></summary>
+    <details><summary><ins>type > read</ins></summary>
     
     - GET `/api/list/type/{type}/`
     
@@ -220,4 +330,68 @@ API for creating pizza orders and much more.
         ]
         ```
     </details>
+    </details>
+
+3. **modify**
+    <details>
+    <summary><ins>read</ins></summary>
+   
+    - GET `/api/modify/{id}/`
+    - **Example**
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action modify read -p id=1
+        ```
+    - <details><summary>Result</summary>
+      
+        ```json
+        [
+            {
+                "id": 1,
+                "pizza_type": "Regular",
+                "pizza_size": "Small",
+                "topping": [
+                    "Cheese",
+                    "Corn"
+                ]
+            }
+        ]
+        ```
+    </details>
+    
+    </details>
+   
+    <details>
+    <summary><ins>update</ins></summary>
+   
+    - GET `/api/modify/{id}/`
+    - **Example**
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action modify update -p id=2 -p pizza_type="Square" -p pizza_size="Large" -p topping='["Mushroom", "Cheese", "Tomato"]'
+        ```
+    - <details><summary>Result</summary>
+      
+        ```json
+        [
+            {
+                "id": 2,
+                "pizza_type": "Square",
+                "pizza_size": "Large",
+                "topping": [
+                    "Mushroom",
+                    "Cheese",
+                    "Tomato"
+                ]
+            }
+        ]
+        ```
+    </details>
+    
     </details>
