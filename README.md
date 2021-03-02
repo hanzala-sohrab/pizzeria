@@ -23,33 +23,28 @@
 
 ## API Info
 
-### 1. create
-
----
-
-### - <ins>pizza > create</ins>
-
-<span style="background-color: #337ab7; display: inline; padding: .2em .6em .3em; line-height: 1; color: #fff; text-align: center; white-space: nowrap; border-radius: .25em;">POST</span> `/api/create/pizza/`
-
-| Parameter  | Description |
-| ------------- | ------------- |
-| `pizza_type` **(required)** | Type of pizza (*i.e.* regular or square)  |
-| `pizza_size` **(required)** | Size of pizza (*e.g.* small, medium, large, etc.)  |
-| `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
-
-
-
-
-
-### - <ins>topping > create</ins>
-
-<span style="background-color: #337ab7; display: inline; padding: .2em .6em .3em; line-height: 1; color: #fff; text-align: center; white-space: nowrap; border-radius: .25em;">POST</span> `/api/create/topping/`
-
-| Parameter  | Description |
-| ------------- | ------------- |
-| `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
-
-**Example**
-```shell
-curl -v -H "Content-Type: application/json" -X POST -d '{"topping":"Mushroom"}' http://127.0.0.1:8000/api/create/topping/
-```
+1. create
+   <details><summary><ins>pizza > create</ins></summary>
+   
+      POST `/api/create/pizza/`
+      
+      | Parameter  | Description |
+      | ------------- | ------------- |
+      | `pizza_type` **(required)** | Type of pizza (*i.e.* regular or square)  |
+      | `pizza_size` **(required)** | Size of pizza (*e.g.* small, medium, large, etc.)  |
+      | `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
+   </details>
+   
+   <details><summary><ins>topping > create</ins></summary>
+   
+      POST `/api/create/topping/`
+      
+      | Parameter  | Description |
+      | ------------- | ------------- |
+      | `topping` **(required)**    | Topping on the pizza (*e.g.* tomato, onion, cheese, corn, etc.)|
+      
+      **Example**
+      ```shell
+      curl -v -H "Content-Type: application/json" -X POST -d '{"topping":"Mushroom"}' http://127.0.0.1:8000/api/create/topping/
+      ```
+   </details>
