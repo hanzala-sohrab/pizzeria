@@ -39,7 +39,7 @@ class ListBySize(generics.ListAPIView):
     serializer_class = PizzaSerializer
 
     def get_queryset(self):
-        size = self.kwargs['pizza_size']
+        size = self.kwargs['size']
         queryset = self.model.objects.filter(pizza_size=size)
         return queryset
 
