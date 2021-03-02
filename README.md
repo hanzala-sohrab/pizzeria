@@ -94,19 +94,32 @@ API for creating pizza orders and much more.
         | `id` **(required)** | Pizza ID  |
     
     - **Example**
-        ```json
-
+        ```shell
+        # Load the schema document
+        coreapi get http://127.0.0.1:8000/docs/
+        
+        # Interact with the API endpoint
+        coreapi action list read -p id=2
         ```
     
     - **Result**
         ```json
-
+        [
+            {
+                "id": 2,
+                "pizza_type": "Regular",
+                "pizza_size": "Extra large",
+                "topping": [
+                    "Onion"
+                ]
+            }
+        ]
         ```
     </details>
 
     <details><summary><ins>show all pizzas of given size</ins></summary>
     
-    - GET `/api/list/{size}/`
+    - GET `/api/list/size/{size}/`
     
         | Parameter  | Description |
         | ------------- | ------------- |
@@ -118,20 +131,12 @@ API for creating pizza orders and much more.
     coreapi get http://127.0.0.1:8000/docs/
     
     # Interact with the API endpoint
-    coreapi action list read_0 -p type="Regular"
+    coreapi action list size read -p size="Large"
     ```
     - <details><summary>Result</summary>
       
         ```json
         [
-            {
-                "id": 2,
-                "pizza_type": "Regular",
-                "pizza_size": "Extra large",
-                "topping": [
-                    "Onion"
-                ]
-            },
             {
                 "id": 3,
                 "pizza_type": "Regular",
@@ -140,15 +145,43 @@ API for creating pizza orders and much more.
                     "Onion",
                     "Tomato"
                 ]
+            },
+            {
+                "id": 4,
+                "pizza_type": "Regular",
+                "pizza_size": "Large",
+                "topping": [
+                    "Cheese",
+                    "Tomato"
+                ]
+            },
+            {
+                "id": 5,
+                "pizza_type": "Regular",
+                "pizza_size": "Large",
+                "topping": [
+                    "Cheese",
+                    "Tomato"
+                ]
+            },
+            {
+                "id": 6,
+                "pizza_type": "Regular",
+                "pizza_size": "Large",
+                "topping": [
+                    "Cheese",
+                    "Tomato"
+                ]
             }
         ]
+
         ```
     </details>
     </details>
 
     <details><summary><ins>show all pizzas of given type</ins></summary>
     
-    - GET `/api/list/{type}/`
+    - GET `/api/list/type/{type}/`
     
         | Parameter  | Description |
         | ------------- | ------------- |
