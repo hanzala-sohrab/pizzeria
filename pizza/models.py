@@ -23,7 +23,7 @@ TOPPINGS = (
 
 
 class Pizza(models.Model):
-    # _id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     pizza_type = models.CharField(max_length=10, choices=TYPES, null=False, blank=False)
     pizza_size = models.CharField(max_length=30, choices=SIZES, default='Small')
     topping = models.ManyToManyField('Topping', default='Tomato')

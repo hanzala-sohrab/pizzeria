@@ -18,6 +18,7 @@
     ```shell
     python manage.py runserver
     ```
+5. Go to http://127.0.0.1:8000/docs for testing the APIs.
 
 ## API Info
 
