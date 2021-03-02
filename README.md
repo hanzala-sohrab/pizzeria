@@ -2,6 +2,8 @@
 
 API for creating pizza orders and much more.
 
+![Image](./images/image.png)
+
 ## Steps to run a local server
 
 1. Install the required modules
